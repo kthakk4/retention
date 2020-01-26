@@ -1,0 +1,6 @@
+## package requirements
+
+numpy
+scipy
+pandas
+matplotlib
