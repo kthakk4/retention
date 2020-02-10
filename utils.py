@@ -19,3 +19,33 @@ def retention_plotter(actual,predicted,title='',train_period=''): #assumes actua
     # draw a vertical line indicating training period if train_period is provided to the helper function
     if train_period != '':
         plt.axvline(x=train_period)
+
+def is_non_increasing(l):
+    '''
+    Checks if a list is non-increasing
+
+    Args:
+    l (list): list of numeric values
+
+    Returns:
+    r (boolean): True if every i in the list is <= i-1, False otherwise
+    '''
+    if len(l) > 1:
+        return all(x>=y for x,y in zip(l,l[1:]))
+    else:
+        raise ValueError()
+
+def is_numeric(l):
+    '''
+    Checks if the values within a list are integers of floats only
+
+    Args:
+    l (list): list of values
+
+    Returns:
+    r (boolean): True if all values in the list are numeric, False otherwise
+    '''
+    if len(l) > 0:
+        return all([type(x) in [int,float] for x in l])
+    else:
+        return False
