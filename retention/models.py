@@ -4,10 +4,11 @@ import datetime as dt
 import dateutil
 import utils
 import logging
-import warnings
 from scipy import stats
 from scipy.optimize import minimize
 from scipy.special import beta
+
+logger = logging.getLogger(__name__)
 
 class ShiftedBetaGeom():
     """ Implementation of shifted-beta-geometric distribution (sBG) for predicting retention curves
@@ -91,7 +92,7 @@ class ShiftedBetaGeom():
             log_liklihood_survived = self.retained_cust[-1]*np.log(ret_prob)
             return  -1*(sum(log_liklihood_churned) + log_liklihood_survived)
 
-    def train(self,data,verbose=False):
+    def train(self,data):
         '''
         estimate alpha and beta parameters by fitting data
         '''
@@ -110,8 +111,7 @@ class ShiftedBetaGeom():
         #scipy.optimize.OptimizeResult
 
         self.params_estimate = list(self.train_result.x) #[alpha,beta]
-        if verbose:
-            print(self.train_result.message)
+        logger.debug('Params: alpha,beta = {}'.format(self.params_estimate))
 
     def predict(self,periods=36):
         '''
@@ -124,4 +124,5 @@ class ShiftedBetaGeom():
             if beta(a,b) == 0:
                 raise ValueError('Check the training data')
             else:
-                return [beta(a,b+t)/beta(a,b) for t in range(0,periods+1)]
+                pred = [beta(a,b+t)/beta(a,b) for t in range(0,periods+1)]
+                return pred
