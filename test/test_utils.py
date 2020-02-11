@@ -1,5 +1,5 @@
 import pytest
-import utils
+from retention import utils,models
 
 testdata_non_increasing = [
     ([10,8,5,4,2,1],True),

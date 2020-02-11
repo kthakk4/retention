@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import datetime as dt
 import dateutil
-import utils
+from retention import utils
 import logging
 from scipy import stats
 from scipy.optimize import minimize

@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name="retention", # Replace with your own username
+    name="retention",
     version="0.0.1",
     author="Kushan Thakkar",
     author_email="kthakk4@gmail.com",

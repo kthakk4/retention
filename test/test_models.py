@@ -1,10 +1,5 @@
 import pytest
-import models
-# data loading
-
-## send an increasing list - raise error
-## send list with non-numeric values
-## list where every value is the same
+from retention import models,utils
 
 testobj = models.ShiftedBetaGeom()
 
