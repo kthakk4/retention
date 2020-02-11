@@ -23,6 +23,7 @@ def test_is_non_increasing(a,expected):
 testdata_is_numeric = [
     ([10,1,2,3,-3],True),
     ([1,'Hi'], False),
+    (['one','two',3,4],False),
     ([],False),
     (['string',-1,0.4,None],False),
     ([1,0.5,1],True)
