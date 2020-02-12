@@ -39,8 +39,6 @@ class ShiftedBetaGeom():
             raise ValueError('Data is missing')
         elif not utils.is_numeric(data) :
             raise ValueError('Data is not numeric')
-        elif not utils.is_non_increasing(data):
-            raise ValueError('Data cannot be increasing')
         elif min(data) < 0:
             raise ValueError('Data cannot be negative')
         elif sum(data) == 0:

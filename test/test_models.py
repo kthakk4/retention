@@ -4,7 +4,7 @@ from retention import models,utils
 testobj = models.ShiftedBetaGeom()
 
 data_junk_vals = [
-    ['one','two',3,4],[8,4,3,-1], [3,2,4,1], [0,0,0,0],[]
+    ['one','two',3,4],[8,4,3,-1], [0,0,0,0],[]
 ]
 
 @pytest.mark.parametrize("a",data_junk_vals)
